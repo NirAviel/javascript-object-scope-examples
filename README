@@ -3,3 +3,5 @@ trying to access to the object pointer ("this") from several locations inside an
 including two files - 
 1. each location use "this" to access the object
 2. each location use a pointer variable ("var that = this") to access the object
+
+the script is typing the results as html to the screen and as object to the browser console.
