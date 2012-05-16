@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body></body>
+	<script type="text/javascript">
+
+		function Test(name) {
+			
+			var that = this; // pointer to constructor/object
+
+			that.name = name;
+		  document.body.innerHTML += 'constructor: ';
+		  document.body.innerHTML += that.constructor.toString().match(/\s\w+/)[0]+'<br>';
+		  console.log(that);
+
+		  that.test1 = function(){
+		    document.body.innerHTML +='that.test1: ';
+		    document.body.innerHTML += that.constructor.toString().match(/\s\w+/)[0]+'<br>';
+			  console.log(that);
+
+		    function innerTest(){
+		      document.body.innerHTML += 'that.test1 -> innerTest: ';
+		   		document.body.innerHTML += that.constructor.toString().match(/\s\w+/)[0]+'<br>';
+				  console.log(that);
+				  test2();
+	    	}
+
+		    innerTest();
+		    test2();
+		  }
+
+		  function test2(){
+		    document.body.innerHTML += 'test2: ';
+		    document.body.innerHTML += that.constructor.toString().match(/\s\w+/)[0]+'<br>';
+			  console.log(that);
+	  	}
+
+		  that.test1();
+		  test2();
+			try{
+				innerTest();
+			}catch(e){
+				document.body.innerHTML += 'innerTest is not defined<br>';
+				console.log(e);
+			}
+
+		}
+
+
+		document.test = new Test('document.test');
+		Test.prototype.newTest = function(){
+			try{
+				document.body.innerHTML += that.name+'.newTest: '+that.constructor.toString().match(/\s\w+/)[0]+'<br>';
+			}catch(e){
+				document.body.innerHTML += 'out of constructor scope, that is not defined!!<br>';
+			}
+		}
+		document.anotherTest = new Test('document.anotherTest');
+		document.anotherTest.newTest();
+		document.test.newTest();
+		try{
+			document.test.test2();
+		}catch(e){
+			document.body.innerHTML += 'document.test.test2() is not defined<br>';
+			console.log(e);
+		}
+		try{
+			test2();
+		}catch(e){
+			document.body.innerHTML += 'test2() is not defined<br>';
+			console.log(e);
+		}
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
