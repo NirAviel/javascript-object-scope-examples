@@ -1,5 +1,5 @@
 examples for javascript object scopes.
-try to access to the object pointer ("this") from several locations inside the object and out side it.
+trying to access to the object pointer ("this") from several locations inside and outside the object.
 including two files - 
-1. all locations use "this" to access the object
-2. all locations use a pointer variable ("var that = this") to access the object
+1. each location use "this" to access the object
+2. each location use a pointer variable ("var that = this") to access the object
