@@ -21,6 +21,7 @@
 			  console.log(that);
 
 		    function innerTest(){
+		    // or innerTest = function(){
 		      document.body.innerHTML += 'that.test1 -> innerTest: ';
 		   		document.body.innerHTML += that.constructor.toString().match(/\s\w+/)[0]+'<br>';
 				  console.log(that);
@@ -32,6 +33,7 @@
 		  }
 
 		  function test2(){
+		  // or test2 = function(){
 		    document.body.innerHTML += 'test2: ';
 		    document.body.innerHTML += that.constructor.toString().match(/\s\w+/)[0]+'<br>';
 			  console.log(that);
